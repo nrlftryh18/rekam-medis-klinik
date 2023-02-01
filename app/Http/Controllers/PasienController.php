@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Cekup;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
 
@@ -28,9 +28,12 @@ class PasienController extends Controller
 
     public function tampilkandata($id){
 
-        $data = Pasien:: find($id);
-        //dd($data);
-        return view('tampildata', compact('data'));
+        // $data = Pasien:: find($id);
+        // //dd($data);
+        // return view('tampildata', compact('data'));
+        $data = Pasien::find($id);
+        $cekup = Cekup::all();
+        return view('tampildata', compact('data', 'cekup'));
     }
 
     public function updatedata(Request $request,$id){

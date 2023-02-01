@@ -1,16 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.admin')
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-DOXMLfHhQkvFFp+rWTZwVlPVqdIhpDVYT9csOnHSgWQWPX0v5MCGtjCJbY6ERspU" crossorigin="anonymous">
-
-    <title>klinik</title>
-</head>
-<body>
+@section('content')
     <h1 class="text-center">Tambah Data Cek Up</h1>
     <div class="container">
         <div class="mb-3 row"> 
@@ -18,68 +8,54 @@
             <div class="call-10">
         <div class="card">
             <div class="card-body">
-                <form action="/insertdatacekup" method="POST">
+                <form action="/updatedatacekup/{{ $data-> id }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="mb-3 row">    
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="inputCervical" class="col-sm-2 col-form-label">CERVICAL</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputCervical" name="cervical">
-                        </div>
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="inputThoraxal" class="col-sm-2 col-form-label">THORAXAL</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputThoraxal" name="thoraxal">
-                        </div>
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="inputLumbar" class="col-sm-2 col-form-label">LUMBAR</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputLumbar" name="lumbar">
-                        </div>
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="inputSacral" class="col-sm-2 col-form-label">SACRAL</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputSacral" name="sacral">
-                        </div>
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="inputPelvis" class="col-sm-2 col-form-label">PELVIS</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPelvis" name="pelvis">
-                        </div>
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="inputPlintiran" class="col-sm-2 col-form-label">PLINTIRAN</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputPlintiran" name="plintiran">
-                        </div></div>
-                        <div class="mb-2 row">
-                            <label for="inputKompresi" class="col-sm-2 col-form-label">KOMPRESI</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputKompresi" name="kompresi">
-                            </div>
-                        </div>
-                        <div class="mb-2 row">
-                            <label for="inputtype_veterbra" class="col-sm-2 col-form-label">TYPE VETERBRA</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputType_veterbra" name="type_veterbra">
-                            </div>
-                        </div>
-                        <div class="mb-2 row">
-                            <label for="inputType_thorax" class="col-sm-2 col-form-label">TYPE THORX</label>
-                            <div class="col-sm-10">
-                            <input type="test" class="form-control" id="inputType_thorax" name="type_thorax">
-                            </div>
-                        </div>
-                        <div class="mb-2 row">
-                            <label for="inputVisul" class="col-sm-2 col-form-label">VISUAL</label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputVisual" name="visual">
-                            </div>
+                    <a href="{{route('tambahcekup')}}" class="btn btn-primary mb-2">
+                        Tambah
+                        
+                    </a>
+                
+                    <table class="table table-hover table-bordered table-stripped" id="id_pasien">
+                    <thead>
+                        <tr>
+            
+                            <th scope="row">tanggal</th>
+                            <th scope="row">cervical</th>
+                            <th scope="row">thoraxal</th>
+                            <th scope="row">lumbar</th>
+                            <th scope="row">sacral</th>
+                            <th scope="row">pelvis</th>
+                            <th scope="row">plintiran</th>
+                            <th scope="row">kompresi</th>
+                            <th scope="row">type_veterbra</th>
+                            <th scope="row">type_thorax</th>
+                            <th scope="row">visual</th>
+                            <th scope="row">Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($cekup as $cekup)
+                        <tr>
+                            <td scope="row">{{$cekup->created_at}}</td>
+                            <td scope="row">{{$cekup->cervical}}</td>
+                            <td scope="row">{{$cekup->thoraxal}}</td>
+                            <td scope="row">{{$cekup->lumbar}}</td>
+                            <td scope="row">{{$cekup->sacral}}</td>
+                            <td scope="row">{{$cekup->pelvis}}</td>
+                            <td scope="row">{{$cekup->plintiran}}</td>
+                            <td scope="row">{{$cekup->kompresi}}</td>
+                            <td scope="row">{{$cekup->type_veterbra}}</td>
+                            <td scope="row">{{$cekup->type_thorax}}</td>
+                            <td scope="row">{{$cekup->visual}}</td>
+                            <td scope="row">
+                                <a href="" class="btn btn-primary btn-xs">
+                                    Edit
+                                </a>
+                                <a href="" onclick="notificationBeforeDelete(event, this)" class="btn btn-danger btn-xs">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
                         </div>
                     <button type="submit" class="btn btn-md btn-primary">Simpan</button>
                     {{-- <a href="/cekup" class="btn btn-primary">Simpan</a> --}}
@@ -91,15 +67,4 @@
     </div>
 
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    -->
-</body>
-</html>
+    @endsection

@@ -15,6 +15,7 @@ class CreateCekupsTable extends Migration
     {
         Schema::create('cekups', function (Blueprint $table) {
             $table->id();
+            $table->string('id_pasien');
             $table->string('cervical');
             $table->string('thoraxal');
             $table->string('lumbar');

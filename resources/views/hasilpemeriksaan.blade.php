@@ -7,11 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Klinik</h1>
+            <h1 class="m-0">Hasil pemeriksaan</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Klinik</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Hasil pemeriksaan</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -20,11 +21,11 @@
     
 <div class="container">
           
-  <a href="/tambahdata" type="button" class="btn btn-info">+ Tambah</a>
+  <a href="/tambahhasilpemeriksaan" type="button" class="btn btn-info">+ Tambah</a>
   <div class="row g-3 align-items-center mt-2">
         <div class="col-auto">
-          <form action="/pasien" method="GET">
-          <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
+          <form action="/hasilpemeriksaan" method="GET">
+          
           </form>
         </div>
       </div>
@@ -34,14 +35,11 @@
             <thead>
               <tr>
                 <th scope="col">No</th>
-                <th scope="col">Aksi</th>
-                <th scope="col">No. Pasien</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Usia</th>
-                <th scope="col">No.hp</th>
-                <th scope="col">Riwayat Medis</th>
-                <th scope="col">Keluhan</th>
+                <th scope="col">Hasil Pemeriksaan 1</th>
+                <th scope="col">Hasil Pemeriksaan 2</th>
+                <th scope="col">Hasil Pemeriksaan 3</th>
+                <th scope="col">Hasil Pemeriksaan 4</th>
+                
               </tr>
           </thead>
           <tbody>
@@ -53,17 +51,12 @@
               <th scope="row">{{ ++ $no }}</th>
               {{-- <th scope="row">{{ $row-> id }}</th> --}}
               <td>
-              
-
-                <a href="/cekup" type="button" class="btn btn-info">cek up</a>
               <a href="/tampilkandata/{{ $row-> id }}" class="btn btn-success">Detail</a>
-              <td>{{  $row-> id_pasien }}</td>
-              <td>{{  $row-> nama }}</td>
-              <td>{{  $row-> alamat }}</td>
-              <td>{{  $row-> usia }}</td>
-              <td>{{  $row-> no_hp }}</td>
-              <td>{{  $row-> riwayat_medis }}</td>
-              <td>{{  $row-> keluhan }}</td>
+              <td>{{  $row-> hasil_pemeriksaan_1 }}</td>
+              <td>{{  $row-> hasil_pemeriksaan_2 }}</td>
+              <td>{{  $row-> hasil_pemeriksaan_3 }}</td>
+              <td>{{  $row-> hasil_pemeriksaan_4 }}</td>
+            
           
             </tr>
             @endforeach

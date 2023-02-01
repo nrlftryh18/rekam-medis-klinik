@@ -5,27 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cekup extends Model
+class hasilpemeriksaan extends Model
 {
     use HasFactory;
 
-    protected $table = 'cekups';
+    protected $table = 'hasilpemeriksaan';
     protected $fillable = [
         'id',
-        'id_pasien',
-        'cervical',
-        'thoraxal',
-        'lumbar',
-        'sacral',
-        'pelvis',
-        'plintiran',
-        'kompresi',
-        'type_veterbra',
-        'type_thorax',
-        'visual',
+        'hasil_pemeriksaan_1',
+        'hasil_pemeriksaan_2',
+        'hasil_pemeriksaan_3',
+        'hasil_pemeriksaan_4'
         
     ];
     protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
 }
+
